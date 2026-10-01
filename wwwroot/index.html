@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CanchaPro</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">C</span>
+        <div>
+          <p class="eyebrow">Reserva deportiva</p>
+          <h1>CanchaPro</h1>
+        </div>
+      </div>
+      <button id="refreshBtn" class="button primary">Actualizar</button>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div>
+          <p class="tag">Gestión de canchas</p>
+          <h2>Reserva, consulta y descubre servicios disponibles</h2>
+        </div>
+        <div class="stats">
+          <div class="stat-card">
+            <span>Horarios</span>
+            <strong id="countHorarios">--</strong>
+          </div>
+          <div class="stat-card">
+            <span>Servicios</span>
+            <strong id="countServicios">--</strong>
+          </div>
+          <div class="stat-card">
+            <span>Promociones</span>
+            <strong id="countPromos">--</strong>
+          </div>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Secciones">
+        <button class="tab active" data-endpoint="/api/horarios">Horarios</button>
+        <button class="tab" data-endpoint="/api/servicios">Servicios</button>
+        <button class="tab" data-endpoint="/api/promociones">Promociones</button>
+      </nav>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3 id="sectionTitle">Horarios disponibles</h3>
+        </div>
+        <div id="content" class="content-list"></div>
+      </section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="card">
+        <div class="card-head">
+          <h4 class="title"></h4>
+          <span class="badge"></span>
+        </div>
+        <p class="description"></p>
+        <div class="meta"></div>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

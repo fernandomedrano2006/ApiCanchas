@@ -13,12 +13,13 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseCors();
 
-// Endpoint de prueba inicial
 app.MapGet("/", () =>
 {
-    return "API Sistema de Gestión funcionando";
+    return Results.Redirect("/index.html");
 });
 
 // Endpoint para el Usuario 1 (Consulta de horarios y disponibilidad)
@@ -123,4 +124,4 @@ app.MapGet("/api/promociones", () =>
 
 var port = Environment.GetEnvironmentVariable("Port") ?? "10000";
 
-app.Run();
+app.Run($"http://0.0.0.0:{port}");
